@@ -12,10 +12,45 @@ const linearSearch = () => {
 
 const { Suite, filter } = require('benchmark')
 
+// const suite = new Suite()
+
+// suite
+//   .add('Linear Search', linearSearch)
+//   .on('complete', function () {
+//     const benchmark = filter(this, 'successful')[0]
+//     console.log(benchmark.name, benchmark.stats.mean)
+//   })
+//   .run()
+
+
+const binarySearch = () => {
+  let min = 0
+  let max = stuff.length - 1
+
+  while (min <= max) {
+
+    let currentIndex = Math.floor((min + max) / 2)
+
+    let current = stuff[currentIndex]
+
+    if (current < random) {
+      min = currentIndex + 1
+    } else if (current > random) {
+      max = currentIndex - 1
+    } else {
+      return currentIndex
+    }
+  }
+
+  return false
+}
+
+// console.log(binarySearch())
+
 const suite = new Suite()
 
 suite
-  .add('Linear Search', linearSearch)
+  .add('Binary Search', binarySearch)
   .on('complete', function () {
     const benchmark = filter(this, 'successful')[0]
     console.log(benchmark.name, benchmark.stats.mean)
